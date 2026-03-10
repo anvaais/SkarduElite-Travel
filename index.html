@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkarduEliteTravel — Premium Car Rental in Skardu, Gilgit-Baltistan</title>
+  <meta name="description"
+    content="Rent SUVs, 4x4 Jeeps, Sedans, and Luxury cars in Skardu. Explore Deosai, Shangrila, Khaplu and more with our reliable fleet. 24/7 support." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Performance: Preload critical CSS & hero image -->
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="preload" href="images/hero.png" as="image" fetchpriority="high" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚗</text></svg>" />
+
+  <!-- Performance: Defer non-critical JS -->
+  <!-- Anti-FOIT: Apply saved theme before render -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') ||
+              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <script src="i18n.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ====== NAVBAR ====== -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" aria-label="SkarduEliteTravel Home">
+        <img src="images/logo.png" alt="SkarduEliteTravel Logo" class="logo-img">
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#fleet" data-i18n="nav_fleet">Fleet</a>
+        <a href="#hotels" data-i18n="nav_hotels">Hotels</a>
+        <a href="#features" data-i18n="nav_services">Services</a>
+        <a href="#routes" data-i18n="nav_routes">Routes</a>
+        <a href="#map" data-i18n="nav_map">Map</a>
+        <a href="#testimonials" data-i18n="nav_reviews">Reviews</a>
+        <a href="#booking" class="nav-cta" data-i18n="nav_book_now">Book Now</a>
+      </div>
+
+      <!-- Language Selector -->
+      <div class="lang-selector" id="langSelector">
+        <button class="lang-btn" id="langBtn" aria-label="Select language" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+          </svg>
+          <span class="lang-current" id="langCurrent">EN</span>
+          <svg class="lang-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" data-lang="en"><span class="lang-flag">🇬🇧</span> English</button>
+          <button class="lang-option" data-lang="ur"><span class="lang-flag">🇵🇰</span> اردو</button>
+          <button class="lang-option" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</button>
+          <button class="lang-option" data-lang="zh"><span class="lang-flag">🇨🇳</span> 中文</button>
+          <button class="lang-option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</button>
+          <button class="lang-option" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</button>
+          <button class="lang-option" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</button>
+          <button class="lang-option" data-lang="ja"><span class="lang-flag">🇯🇵</span> 日本語</button>
+          <button class="lang-option" data-lang="ko"><span class="lang-flag">🇰🇷</span> 한국어</button>
+          <button class="lang-option" data-lang="tr"><span class="lang-flag">🇹🇷</span> Türkçe</button>
+          <button class="lang-option" data-lang="ru"><span class="lang-flag">🇷🇺</span> Русский</button>
+          <button class="lang-option" data-lang="it"><span class="lang-flag">🇮🇹</span> Italiano</button>
+        </div>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/>
+          <line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/>
+          <line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="images/hero.png" alt="Skardu Mountains and Karakoram Range" fetchpriority="high"
+        width="1920" height="1080" />
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero_title">
+          Find the perfect <span>rental car</span> in Skardu
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Compare SUVs, 4x4 Jeeps, and luxury vehicles for your Karakoram adventure
+        </p>
+
+        <!-- Kayak-style Service Tabs -->
+        <div class="hero-search">
+          <div class="hero-tabs">
+            <a href="#" class="hero-tab" data-tab="flights">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.4-.1.9.3 1.1l5.5 3.2-3 3-2.3-.7c-.4-.1-.8 0-1.1.3l-.1.2c-.2.3-.1.7.2.9l3.3 2.3 2.3 3.3c.2.3.6.4.9.2l.2-.1c.3-.3.4-.7.3-1.1l-.7-2.3 3-3 3.2 5.5c.2.4.7.5 1.1.3l.5-.3c.4-.2.6-.6.5-1.1z" />
+              </svg>
+              <span>Flights</span>
+            </a>
+            <a href="#" class="hero-tab" data-tab="stays">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M3 21h18M3 7v1a3 3 0 003 3h0a3 3 0 003-3V7m0 0V7a3 3 0 013-3h0a3 3 0 013 3v1m0 0a3 3 0 003 3h0a3 3 0 003-3V7M6 21V11m12 0v10" />
+              </svg>
+              <span>Stays</span>
+            </a>
+            <a href="#" class="hero-tab active" data-tab="cars">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h8l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2M5 17v2m14-2v2" />
+                <circle cx="7.5" cy="14.5" r="1.5" />
+                <circle cx="16.5" cy="14.5" r="1.5" />
+              </svg>
+              <span>Cars</span>
+            </a>
+            <a href="#" class="hero-tab" data-tab="packages">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                <line x1="12" y1="22.08" x2="12" y2="12" />
+              </svg>
+              <span>Packages</span>
+            </a>
+            <a href="#" class="hero-tab" data-tab="cruises">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 20c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+                <path d="M2 17c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+                <path d="M7 12V4l5-2 5 2v8l-5 3z" />
+              </svg>
+              <span>Cruises</span>
+            </a>
+          </div>
+          <div class="hero-search-row">
+            <div class="search-field">
+              <label>Pickup Location</label>
+              <select id="heroLocation">
+                <option value="airport">Skardu Airport (SDA)</option>
+                <option value="office">Hussainabad Road Office</option>
+                <option value="hotel">Hotel Delivery</option>
+              </select>
+            </div>
+            <div class="search-field">
+              <label>Pickup Date</label>
+              <input type="date" id="heroPickup" />
+            </div>
+            <div class="search-field">
+              <label>Drop-off Date</label>
+              <input type="date" id="heroDropoff" />
+            </div>
+            <div class="search-field">
+              <label>Car Type</label>
+              <select id="heroCarType">
+                <option value="all">All Types</option>
+                <option value="suv">SUV</option>
+                <option value="4x4">4x4 Jeep</option>
+                <option value="sedan">Sedan</option>
+                <option value="luxury">Luxury</option>
+                <option value="van">Van</option>
+              </select>
+            </div>
+            <button class="hero-search-btn" id="heroSearchBtn">🔍 Search</button>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number" data-count="50" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="stat_vehicles">Vehicles Available</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="2500" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="stat_customers">Happy Customers</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number" data-count="15" data-suffix="+">0</div>
+            <div class="stat-label" data-i18n="stat_routes">Routes Covered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FLEET ====== -->
+  <section class="section fleet" id="fleet">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="fleet_badge">🚘 Our Fleet</div>
+        <h2 class="section-title" data-i18n="fleet_title">Choose Your Perfect Ride</h2>
+        <p class="section-subtitle" data-i18n="fleet_subtitle">
+          From rugged 4x4 Jeeps for mountain trails to comfortable sedans for city travel — we have the right vehicle
+          for every journey in Skardu.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="fleet-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="suv">SUV</button>
+        <button class="filter-btn" data-filter="4x4">4x4 Jeep</button>
+        <button class="filter-btn" data-filter="sedan">Sedan</button>
+        <button class="filter-btn" data-filter="luxury">Luxury</button>
+        <button class="filter-btn" data-filter="van">Van</button>
+      </div>
+
+      <!-- Feature Filters -->
+      <div class="feature-filters reveal" id="featureFilters">
+        <div class="feature-filter-group">
+          <span class="feature-filter-label">⛽ Fuel</span>
+          <button class="feature-chip" data-feature="diesel">Diesel</button>
+          <button class="feature-chip" data-feature="petrol">Petrol</button>
+        </div>
+        <div class="feature-filter-group">
+          <span class="feature-filter-label">⚙️ Transmission</span>
+          <button class="feature-chip" data-feature="automatic">Automatic</button>
+          <button class="feature-chip" data-feature="manual">Manual</button>
+        </div>
+        <div class="feature-filter-group">
+          <span class="feature-filter-label">👥 Seats</span>
+          <button class="feature-chip" data-feature="5-seats">5</button>
+          <button class="feature-chip" data-feature="7-seats">7</button>
+          <button class="feature-chip" data-feature="8-seats">8+</button>
+        </div>
+        <div class="feature-filter-group">
+          <span class="feature-filter-label">✨ Special</span>
+          <button class="feature-chip" data-feature="ac">AC</button>
+          <button class="feature-chip" data-feature="offroad">Off-road</button>
+          <button class="feature-chip" data-feature="leather">Leather</button>
+        </div>
+        <button class="feature-clear-btn" id="clearFeatures">✕ Clear All</button>
+      </div>
+
+      <!-- Car Grid -->
+      <div class="fleet-grid">
+
+        <!-- Card 1: Toyota Land Cruiser -->
+        <div class="car-card reveal" data-category="suv" data-features="diesel,7-seats,automatic,ac">
+          <div class="car-card-badge">Popular</div>
+          <div class="car-card-img">
+            <img src="images/Toyota Land Cruiser V8.png" alt="Toyota Land Cruiser V8" class="car-photo" loading="lazy"
+              width="600" height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">SUV</div>
+            <h3 class="car-card-name">Toyota Land Cruiser V8</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Diesel</div>
+              <div class="car-feature"><span class="icon">👥</span> 7 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Automatic</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 18,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Toyota Prado -->
+        <div class="car-card reveal" data-category="suv" data-features="diesel,7-seats,automatic,ac">
+          <div class="car-card-img">
+            <img src="images/Toyota Prado TX.png" alt="Toyota Prado TX" class="car-photo" loading="lazy" width="600"
+              height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">SUV</div>
+            <h3 class="car-card-name">Toyota Prado TX</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Diesel</div>
+              <div class="car-feature"><span class="icon">👥</span> 7 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Automatic</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 15,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Toyota Hilux -->
+        <div class="car-card reveal" data-category="4x4" data-features="diesel,5-seats,manual,offroad">
+          <div class="car-card-badge">Best for Mountains</div>
+          <div class="car-card-img">
+            <img src="images/Toyota Hilux 4x4.png" alt="Toyota Hilux 4x4" class="car-photo" loading="lazy" width="600"
+              height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">4x4 Jeep</div>
+            <h3 class="car-card-name">Toyota Hilux 4x4</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Diesel</div>
+              <div class="car-feature"><span class="icon">👥</span> 5 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Manual</div>
+              <div class="car-feature"><span class="icon">🏔️</span> Off-road</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 12,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Land Cruiser 70 Series -->
+        <div class="car-card reveal" data-category="4x4" data-features="diesel,8-seats,manual,offroad">
+          <div class="car-card-img">
+            <img src="images/Land Cruiser 70 Series.png" alt="Land Cruiser 70 Series" class="car-photo" loading="lazy"
+              width="600" height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">4x4 Jeep</div>
+            <h3 class="car-card-name">Land Cruiser 70 Series</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Diesel</div>
+              <div class="car-feature"><span class="icon">👥</span> 8 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Manual</div>
+              <div class="car-feature"><span class="icon">🏔️</span> Heavy Duty</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 14,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Honda Civic -->
+        <div class="car-card reveal" data-category="sedan" data-features="petrol,5-seats,automatic,ac">
+          <div class="car-card-img">
+            <img src="images/Honda Civic.png" alt="Honda Civic" class="car-photo" loading="lazy" width="600"
+              height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">Sedan</div>
+            <h3 class="car-card-name">Honda Civic</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Petrol</div>
+              <div class="car-feature"><span class="icon">👥</span> 5 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Automatic</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 8,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Toyota Corolla -->
+        <div class="car-card reveal" data-category="sedan" data-features="petrol,5-seats,automatic,ac">
+          <div class="car-card-img">
+            <img src="images/Toyota Corolla GLi.png" alt="Toyota Corolla GLi" class="car-photo" loading="lazy"
+              width="600" height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">Sedan</div>
+            <h3 class="car-card-name">Toyota Corolla GLi</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Petrol</div>
+              <div class="car-feature"><span class="icon">👥</span> 5 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Automatic</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 7,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Mercedes E-Class -->
+        <div class="car-card reveal" data-category="luxury" data-features="petrol,5-seats,automatic,leather">
+          <div class="car-card-badge">Premium</div>
+          <div class="car-card-img">
+            <img src="images/Mercedes E-Class.png" alt="Mercedes E-Class" class="car-photo" loading="lazy" width="600"
+              height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">Luxury</div>
+            <h3 class="car-card-name">Mercedes E-Class</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Petrol</div>
+              <div class="car-feature"><span class="icon">👥</span> 5 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Automatic</div>
+              <div class="car-feature"><span class="icon">✨</span> Leather</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 25,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Toyota Hiace -->
+        <div class="car-card reveal" data-category="van" data-features="diesel,8-seats,manual,ac">
+          <div class="car-card-badge">Group Travel</div>
+          <div class="car-card-img">
+            <img src="images/Toyota Hiace Grand Cabin.png" alt="Toyota Hiace Grand Cabin" class="car-photo"
+              loading="lazy" width="600" height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">Van</div>
+            <h3 class="car-card-name">Toyota Hiace Grand Cabin</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Diesel</div>
+              <div class="car-feature"><span class="icon">👥</span> 14 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Manual</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 16,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Suzuki APV -->
+        <div class="car-card reveal" data-category="van" data-features="petrol,8-seats,manual,ac">
+          <div class="car-card-img">
+            <img src="images/Suzuki APV.png" alt="Suzuki APV" class="car-photo" loading="lazy" width="600"
+              height="400" />
+          </div>
+          <div class="car-card-body">
+            <div class="car-card-category">Van</div>
+            <h3 class="car-card-name">Suzuki APV</h3>
+            <div class="car-card-features">
+              <div class="car-feature"><span class="icon">⛽</span> Petrol</div>
+              <div class="car-feature"><span class="icon">👥</span> 8 Seats</div>
+              <div class="car-feature"><span class="icon">⚙️</span> Manual</div>
+              <div class="car-feature"><span class="icon">❄️</span> AC</div>
+            </div>
+            <div class="car-card-footer">
+              <div class="car-price">PKR 6,000 <small>/day</small></div>
+              <a href="#booking" class="car-book-btn">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== HOTELS SECTION ====== -->
+  <section class="section hotels-section" id="hotels">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="hotels_badge">🏨 Hotels & Stays</div>
+        <h2 class="section-title" data-i18n="hotels_title">Top Hotels & Rentals in Skardu</h2>
+        <p class="section-subtitle" data-i18n="hotels_subtitle">
+          Find the perfect place to stay — from luxury resorts on lakeshores to cozy guesthouses in the heart of Skardu.
+        </p>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="hotel-filters reveal">
+        <button class="hotel-filter-pill active" data-hotel-filter="all">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M2 12h20" />
+          </svg>
+          All
+        </button>
+        <button class="hotel-filter-pill" data-hotel-filter="hotel">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M3 21h18M3 7v1a3 3 0 003 3h0a3 3 0 003-3V7m0 0V7a3 3 0 013-3h0a3 3 0 013 3v1m0 0a3 3 0 003 3h0a3 3 0 003-3V7M6 21V11m12 0v10" />
+          </svg>
+          Hotels
+        </button>
+        <button class="hotel-filter-pill" data-hotel-filter="resort">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 20c2-1 4-1 6 0s4 1 6 0 4-1 6 0" />
+            <path d="M17 8a5 5 0 10-10 0" />
+            <path d="M12 3v5" />
+          </svg>
+          Resorts
+        </button>
+        <button class="hotel-filter-pill" data-hotel-filter="guesthouse">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Guest Houses
+        </button>
+        <div class="hotel-filter-divider"></div>
+        <button class="hotel-filter-pill" data-hotel-sort="price">
+          💰 Price
+        </button>
+        <button class="hotel-filter-pill" data-hotel-sort="rating">
+          ⭐ Guest Rating
+        </button>
+      </div>
+
+      <!-- Hotel Layout: Cards + Map -->
+      <div class="hotel-layout reveal">
+
+        <!-- Hotel Cards List -->
+        <div class="hotel-cards-list" id="hotelCardsList">
+
+          <!-- Hotel Card 1 -->
+          <div class="hotel-card" data-hotel-type="resort" data-hotel-price="15000" data-hotel-rating="4.8">
+            <div class="hotel-card-img">
+              <img src="images/Shangrila Resort.jfif" alt="Shangrila Resort Skardu" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">RESORT</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Shangrila Resort</h3>
+                <div class="hotel-card-price">Rs 15,000<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏠</span> Resort</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 12</div>
+                <div class="hotel-amenity"><span>🛏️</span> 6 bedrooms</div>
+                <div class="hotel-amenity"><span>🚿</span> 4 bathrooms</div>
+                <div class="hotel-amenity"><span>❄️</span> Air conditioning</div>
+                <div class="hotel-amenity"><span>👶</span> Kid-friendly</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐⭐ <strong>4.8</strong> <span>(324 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Shangrila+Resort+Skardu" target="_blank" rel="noopener noreferrer"
+                  class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 2 -->
+          <div class="hotel-card" data-hotel-type="hotel" data-hotel-price="22000" data-hotel-rating="4.7">
+            <div class="hotel-card-img">
+              <img src="images/Serena Hotel Skardu.jfif" alt="Serena Hotel Skardu" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">HOTEL</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Serena Hotel Skardu</h3>
+                <div class="hotel-card-price">Rs 22,000<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏨</span> Hotel</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 4</div>
+                <div class="hotel-amenity"><span>🛏️</span> 2 bedrooms</div>
+                <div class="hotel-amenity"><span>🚿</span> 2 bathrooms</div>
+                <div class="hotel-amenity"><span>🍳</span> Kitchen</div>
+                <div class="hotel-amenity"><span>📶</span> Wi-Fi</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐⭐ <strong>4.7</strong> <span>(258 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Serena+Hotel+Skardu" target="_blank" rel="noopener noreferrer"
+                  class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 3 -->
+          <div class="hotel-card" data-hotel-type="guesthouse" data-hotel-price="5483" data-hotel-rating="4.5">
+            <div class="hotel-card-img">
+              <img src="images/Marhaba Guest House.jfif" alt="Marhaba Guest House Skardu" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">VACATION RENTAL</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Marhaba Guest House</h3>
+                <div class="hotel-card-price">Rs 5,483<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏠</span> Villa</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 10</div>
+                <div class="hotel-amenity"><span>🛏️</span> 3 bedrooms</div>
+                <div class="hotel-amenity"><span>🚿</span> 2 bathrooms</div>
+                <div class="hotel-amenity"><span>🛌</span> 11 beds</div>
+                <div class="hotel-amenity"><span>👶</span> Kid-friendly</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐ <strong>4.5</strong> <span>(89 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Marhaba+Guest+House+Skardu" target="_blank"
+                  rel="noopener noreferrer" class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 4 -->
+          <div class="hotel-card" data-hotel-type="guesthouse" data-hotel-price="3243" data-hotel-rating="4.3">
+            <div class="hotel-card-img">
+              <img src="images/Stay Lap of the Mountain.jfif" alt="Stay Lap of the Mountain" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">VACATION RENTAL</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Stay Lap of the Mountain</h3>
+                <div class="hotel-card-price">Rs 3,243<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏠</span> House</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 15</div>
+                <div class="hotel-amenity"><span>🛏️</span> 10 bedrooms</div>
+                <div class="hotel-amenity"><span>🛌</span> 10 beds</div>
+                <div class="hotel-amenity"><span>❄️</span> Air conditioning</div>
+                <div class="hotel-amenity"><span>🍳</span> Kitchen</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐ <strong>4.3</strong> <span>(56 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Skardu+Hotels" target="_blank" rel="noopener noreferrer"
+                  class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 5 -->
+          <div class="hotel-card" data-hotel-type="hotel" data-hotel-price="8000" data-hotel-rating="4.4">
+            <div class="hotel-card-img">
+              <img src="images/Concordia Motel.jfif" alt="Concordia Motel Skardu" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">HOTEL</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Concordia Motel</h3>
+                <div class="hotel-card-price">Rs 8,000<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏨</span> Hotel</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 6</div>
+                <div class="hotel-amenity"><span>🛏️</span> 3 bedrooms</div>
+                <div class="hotel-amenity"><span>🚿</span> 3 bathrooms</div>
+                <div class="hotel-amenity"><span>🅿️</span> Parking</div>
+                <div class="hotel-amenity"><span>📶</span> Wi-Fi</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐ <strong>4.4</strong> <span>(142 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Concordia+Motel+Skardu" target="_blank" rel="noopener noreferrer"
+                  class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hotel Card 6 -->
+          <div class="hotel-card" data-hotel-type="resort" data-hotel-price="6500" data-hotel-rating="4.3">
+            <div class="hotel-card-img">
+              <img src="images/Mashabrum Hotel.jfif" alt="Mashabrum Hotel Skardu" loading="lazy" width="500"
+                height="350" />
+              <div class="hotel-card-type">RESORT</div>
+              <div class="hotel-card-gallery-dots">
+                <span class="active"></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="hotel-card-body">
+              <div class="hotel-card-header">
+                <h3>Mashabrum Hotel</h3>
+                <div class="hotel-card-price">Rs 6,500<small>/night</small></div>
+              </div>
+              <div class="hotel-card-amenities">
+                <div class="hotel-amenity"><span>🏔️</span> Resort</div>
+                <div class="hotel-amenity"><span>👥</span> Sleeps 8</div>
+                <div class="hotel-amenity"><span>🛏️</span> 4 bedrooms</div>
+                <div class="hotel-amenity"><span>🚿</span> 2 bathrooms</div>
+                <div class="hotel-amenity"><span>🅿️</span> Parking</div>
+                <div class="hotel-amenity"><span>🌄</span> Mountain view</div>
+              </div>
+              <div class="hotel-card-footer">
+                <div class="hotel-card-rating">⭐⭐⭐⭐ <strong>4.3</strong> <span>(97 reviews)</span></div>
+                <a href="https://maps.google.com/?q=Mashabrum+Hotel+Skardu" target="_blank" rel="noopener noreferrer"
+                  class="hotel-view-btn">View details</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Map Sidebar -->
+        <div class="hotel-map-sidebar">
+          <div class="hotel-map-sticky">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d52000!2d75.55!3d35.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1shotels+in+skardu!5e0!3m2!1sen!2s!4v1700000000000"
+              width="100%" height="100%" style="border:0;border-radius:12px;" allowfullscreen="" loading="lazy"
+              title="Skardu Hotels Map">
+            </iframe>
+            <div class="hotel-map-badge">📍 Hotels in Skardu</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== WHY CHOOSE US ====== -->
+  <section class="section features" id="features">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="features_badge">⭐ Why Choose Us</div>
+        <h2 class="section-title" data-i18n="features_title">Your Trusted Travel Partner in Skardu</h2>
+        <p class="section-subtitle" data-i18n="features_subtitle">
+          We combine local expertise with premium service to make your Skardu adventure safe, comfortable, and
+          unforgettable.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">🕐</div>
+          <h3 data-i18n="feature_1_title">24/7 Road Assistance</h3>
+          <p data-i18n="feature_1_desc">Round-the-clock support for breakdowns, flat tyres, or any emergency on remote
+            mountain roads.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">📍</div>
+          <h3 data-i18n="feature_2_title">GPS Navigation</h3>
+          <p data-i18n="feature_2_desc">All vehicles equipped with GPS and offline maps — navigate Skardu's winding
+            roads with confidence.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">✈️</div>
+          <h3 data-i18n="feature_3_title">Airport Pickup</h3>
+          <p data-i18n="feature_3_desc">Free pickup & drop-off at Skardu Airport (SDA). Your car will be waiting when
+            you land.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">🛡️</div>
+          <h3 data-i18n="feature_4_title">Full Insurance</h3>
+          <p data-i18n="feature_4_desc">Comprehensive coverage included with every rental. Drive with total peace of
+            mind.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">👨‍✈️</div>
+          <h3 data-i18n="feature_5_title">Expert Local Drivers</h3>
+          <p data-i18n="feature_5_desc">Hire an experienced local driver who knows every mountain pass, shortcut, and
+            hidden gem.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">💰</div>
+          <h3 data-i18n="feature_6_title">Best Price Guarantee</h3>
+          <p data-i18n="feature_6_desc">Transparent pricing with no hidden fees. We match or beat any competitor's rate
+            in Skardu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== POPULAR ROUTES ====== -->
+  <section class="section routes" id="routes">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="routes_badge">🗺️ Popular Routes</div>
+        <h2 class="section-title" data-i18n="routes_title">Iconic Destinations from Skardu</h2>
+        <p class="section-subtitle" data-i18n="routes_subtitle">
+          Discover the most scenic drives in Gilgit-Baltistan. We recommend the best vehicles for each route.
+        </p>
+      </div>
+
+      <div class="routes-grid">
+        <div class="route-card reveal">
+          <div class="route-card-bg" style="background-image: url('images/Deosai National Park.png');">
+          </div>
+          <div class="route-card-overlay"></div>
+          <div class="route-card-content">
+            <div class="route-card-distance">📏 ~80 km · 3 hours</div>
+            <h3>Deosai National Park</h3>
+            <p>World's second highest plateau. Best explored in a 4x4 Jeep. Open June–October.</p>
+          </div>
+        </div>
+
+        <div class="route-card reveal">
+          <div class="route-card-bg" style="background-image: url('images/Shangrila Resort Route.png');">
+          </div>
+          <div class="route-card-overlay"></div>
+          <div class="route-card-content">
+            <div class="route-card-distance">📏 ~32 km · 1 hour</div>
+            <h3>Shangrila Resort</h3>
+            <p>The "Heaven on Earth" with its famous heart-shaped lake. SUV or sedan recommended.</p>
+          </div>
+        </div>
+
+        <div class="route-card reveal">
+          <div class="route-card-bg" style="background-image: url('images/Khaplu Palace & Valley.png');">
+          </div>
+          <div class="route-card-overlay"></div>
+          <div class="route-card-content">
+            <div class="route-card-distance">📏 ~103 km · 2.5 hours</div>
+            <h3>Khaplu Palace & Valley</h3>
+            <p>Ancient Chaqchan Mosque and the grand Khaplu Palace. Paved road, any vehicle works.</p>
+          </div>
+        </div>
+
+        <div class="route-card reveal">
+          <div class="route-card-bg" style="background-image: url('images/Satpara Lake.png');">
+          </div>
+          <div class="route-card-overlay"></div>
+          <div class="route-card-content">
+            <div class="route-card-distance">📏 ~9 km · 20 mins</div>
+            <h3>Satpara Lake</h3>
+            <p>Crystal-clear alpine lake minutes from Skardu city. Perfect for a quick getaway.</p>
+          </div>
+        </div>
+
+        <div class="route-card reveal">
+          <div class="route-card-bg" style="background-image: url('images/Shigar Fort.png');">
+          </div>
+          <div class="route-card-overlay"></div>
+          <div class="route-card-content">
+            <div class="route-card-distance">📏 ~32 km · 45 mins</div>
+            <h3>Shigar Fort & Cold Desert</h3>
+            <p>17th-century fort turned heritage hotel, and the magical Katpana Cold Desert nearby. Any vehicle works.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== EXPLORE SKARDU MAP ====== -->
+  <section class="section explore-map" id="map">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="map_badge">📍 Explore on Map</div>
+        <h2 class="section-title" data-i18n="map_title">Best Tour Places in Skardu</h2>
+        <p class="section-subtitle" data-i18n="map_subtitle">
+          Discover all the must-visit destinations in Skardu. Click any place to see it on Google Maps.
+        </p>
+      </div>
+
+      <div class="map-layout reveal">
+        <!-- Google Map Embed -->
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207256.83785679043!2d75.41!3d35.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e46d20a0573b17%3A0x94e768b3ce903dc5!2sSkardu%2C%20Gilgit-Baltistan%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Skardu Tourist Map">
+          </iframe>
+        </div>
+
+        <!-- Tour Places List -->
+        <div class="tour-places">
+          <h3 class="tour-places-title">🏔️ Must-Visit Destinations</h3>
+
+          <a href="https://www.google.com/maps/place/Upper+Kachura+Lake/@35.4697,75.4252,15z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">01</div>
+            <div class="tour-place-info">
+              <h4>Upper Kachura Lake</h4>
+              <p>Stunning turquoise lake with crystal-clear water, surrounded by rugged cliffs. A hidden gem.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Shangrila+Resort/@35.4186,75.5375,15z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">02</div>
+            <div class="tour-place-info">
+              <h4>Shangrila Resort (Lower Kachura)</h4>
+              <p>The famous "Heaven on Earth" with its heart-shaped lake and beautiful gardens.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Deosai+National+Park/@35.0,75.4,10z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">03</div>
+            <div class="tour-place-info">
+              <h4>Deosai National Park</h4>
+              <p>World's second-highest plateau — home to the Himalayan brown bear and wildflowers.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Satpara+Lake/@35.2817,75.6164,15z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">04</div>
+            <div class="tour-place-info">
+              <h4>Satpara Lake</h4>
+              <p>A serene alpine lake just 9 km from Skardu city. Perfect for a peaceful day trip.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Skardu+Fort/@35.2972,75.6339,17z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">05</div>
+            <div class="tour-place-info">
+              <h4>Skardu Fort (Kharpocho)</h4>
+              <p>Historic 16th-century fort on a hilltop with panoramic views of Skardu valley and Indus River.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Khaplu+Palace/@35.1506,76.3281,17z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">06</div>
+            <div class="tour-place-info">
+              <h4>Khaplu Palace</h4>
+              <p>Beautifully restored 19th-century royal palace in the Chaqchan valley. A heritage masterpiece.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Shigar+Fort/@35.4269,75.7489,17z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">07</div>
+            <div class="tour-place-info">
+              <h4>Shigar Fort & Cold Desert</h4>
+              <p>17th-century fort turned heritage hotel, and the magical Katpana Cold Desert nearby.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+          <a href="https://www.google.com/maps/place/Manthoka+Waterfall/@35.2217,75.8886,15z" target="_blank"
+            rel="noopener noreferrer" class="tour-place-item">
+            <div class="tour-place-number">08</div>
+            <div class="tour-place-info">
+              <h4>Manthoka Waterfall</h4>
+              <p>Spectacular 55-meter waterfall cascading into a turquoise pool. Great for picnics and photography.</p>
+            </div>
+            <div class="tour-place-arrow">→</div>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="testimonials_badge">💬 Testimonials</div>
+        <h2 class="section-title" data-i18n="testimonials_title">What Our Customers Say</h2>
+        <p class="section-subtitle" data-i18n="testimonials_subtitle">
+          Hear from travelers who explored Skardu with our vehicles.
+        </p>
+      </div>
+
+      <div class="testimonials-wrapper reveal">
+        <div class="testimonials-track">
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Rented a Land Cruiser for our Deosai trip. The vehicle was in perfect condition and handled the rough
+              terrain beautifully. The driver knew every shortcut. Will definitely use SkarduEliteTravel again!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AK</div>
+              <div class="testimonial-info">
+                <h4>Ahmed Khan</h4>
+                <p>Tourist from Islamabad</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "Booked a Hiace for our family trip to Shangrila and Khaplu. Smooth and comfortable ride. Airport pickup
+              was on time. Amazing service at very reasonable rates."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SF</div>
+              <div class="testimonial-info">
+                <h4>Sara Fatima</h4>
+                <p>Family Trip from Lahore</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <p class="testimonial-text">
+              "As a solo traveler, I needed a reliable car to explore at my own pace. The Corolla was perfect for city
+              drives, and the team was incredibly helpful with route suggestions. 10/10!"
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">JM</div>
+              <div class="testimonial-info">
+                <h4>James Mitchell</h4>
+                <p>Solo Traveler from UK</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testimonial-nav">
+          <button class="testimonial-dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="testimonial-dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="testimonial-dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== BOOKING / CONTACT ====== -->
+  <section class="section booking" id="booking">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-badge" data-i18n="booking_badge">📋 Book Your Ride</div>
+        <h2 class="section-title" data-i18n="booking_title">Ready for the Adventure?</h2>
+        <p class="section-subtitle" data-i18n="booking_subtitle">
+          Fill in the form below and we'll get back to you within 30 minutes with the best rates.
+        </p>
+      </div>
+
+      <div class="booking-grid reveal">
+        <!-- Form -->
+        <form class="booking-form" id="bookingForm" action="https://formsubmit.co/skarduelitetravel@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Booking Request — SkarduEliteTravel">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="">
+          <h3>Booking Request</h3>
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="Name" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone / WhatsApp *</label>
+              <input type="tel" id="phone" name="Phone" placeholder="+92 300 1234567" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="Email" placeholder="your@email.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pickup">Pickup Date *</label>
+              <input type="date" id="pickup" name="Pickup Date" required />
+            </div>
+            <div class="form-group">
+              <label for="dropoff">Drop-off Date</label>
+              <input type="date" id="dropoff" name="Dropoff Date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carType">Vehicle Type *</label>
+            <select id="carType" name="Vehicle Type" required>
+              <option value="">Select a vehicle...</option>
+              <option value="land-cruiser">Toyota Land Cruiser V8</option>
+              <option value="prado">Toyota Prado TX</option>
+              <option value="hilux">Toyota Hilux 4x4</option>
+              <option value="lc70">Land Cruiser 70 Series</option>
+              <option value="civic">Honda Civic</option>
+              <option value="corolla">Toyota Corolla GLi</option>
+              <option value="mercedes">Mercedes E-Class</option>
+              <option value="hiace">Toyota Hiace Grand Cabin</option>
+              <option value="apv">Suzuki APV</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="notes">Special Requests</label>
+            <textarea id="notes" name="Special Requests" placeholder="Need a driver? Specific route? Baby seat? Let us know..."></textarea>
+          </div>
+          <button type="submit" class="form-submit-btn" data-i18n="booking_submit">🚗 Submit Booking Request</button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3 data-i18n="contact_title">Get in Touch</h3>
+          <p data-i18n="contact_desc">Have questions? Reach out to our team anytime. We're locals who love showing off
+            our beautiful Skardu!</p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-item-icon">📞</div>
+              <div>
+                <h4>Phone / WhatsApp</h4>
+                <p><a href="https://wa.me/923463996608" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--clr-primary);">0346
+                    3996608</a></p>
+                <p><a href="https://wa.me/923555121898" target="_blank" rel="noopener noreferrer"
+                    style="color: var(--clr-primary);">0355
+                    5121898</a></p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <p>skarduelitetravel@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">📍</div>
+              <div>
+                <h4>Office</h4>
+                <p>Hussainabad Road, Near Airport Chowk<br />Skardu, Gilgit-Baltistan</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">🕐</div>
+              <div>
+                <h4>Working Hours</h4>
+                <p>Open 24/7 — Always Available</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="https://wa.me/923463996608" target="_blank" rel="noopener noreferrer" class="social-link"
+              aria-label="WhatsApp">💬</a>
+            <a href="#" class="social-link" aria-label="YouTube">🎬</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" aria-label="SkarduEliteTravel Home">
+            <img src="images/logo.png" alt="SkarduEliteTravel Logo" class="logo-img">
+          </a>
+          <p data-i18n="footer_desc">Your trusted car rental partner in Skardu, Gilgit-Baltistan. Explore the Karakoram
+            with our reliable fleet
+            and experienced local drivers.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="#fleet">Our Fleet</a>
+          <a href="#features">Services</a>
+          <a href="#routes">Routes</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#booking">Book Now</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Vehicles</h4>
+          <a href="#fleet">SUVs</a>
+          <a href="#fleet">4x4 Jeeps</a>
+          <a href="#fleet">Sedans</a>
+          <a href="#fleet">Luxury Cars</a>
+          <a href="#fleet">Vans</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <a href="#routes">Deosai Plains</a>
+          <a href="#routes">Shangrila</a>
+          <a href="#routes">Khaplu Valley</a>
+          <a href="#routes">Satpara Lake</a>
+          <a href="#routes">K2 Base Camp</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-i18n="footer_copyright">&copy; 2026 SkarduEliteTravel. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <div class="whatsapp-popup" id="whatsappPopup">
+      <div class="whatsapp-popup-header">
+        <div class="whatsapp-popup-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.693-6.05-1.876l-.424-.29-2.638.885.885-2.638-.29-.424A9.963 9.963 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+          </svg>
+          <span>SkarduEliteTravel</span>
+        </div>
+        <button class="whatsapp-popup-close" id="whatsappClose">✕</button>
+      </div>
+      <div class="whatsapp-popup-body">
+        <p>👋 Assalam u Alaikum! Chat with us on WhatsApp for quick booking.</p>
+        <a href="https://wa.me/923463996608?text=Assalam%20u%20Alaikum!%20I%20want%20to%20book%20a%20car%20in%20Skardu."
+          target="_blank" rel="noopener noreferrer" class="whatsapp-chat-btn">
+          <span>💬</span> 0346 3996608
+        </a>
+        <a href="https://wa.me/923555121898?text=Assalam%20u%20Alaikum!%20I%20want%20to%20book%20a%20car%20in%20Skardu."
+          target="_blank" rel="noopener noreferrer" class="whatsapp-chat-btn">
+          <span>💬</span> 0355 5121898
+        </a>
+      </div>
+    </div>
+    <button class="whatsapp-btn" id="whatsappBtn" aria-label="Chat on WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+        <path
+          d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.693-6.05-1.876l-.424-.29-2.638.885.885-2.638-.29-.424A9.963 9.963 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- ====== BOOKING MODAL ====== -->
+  <div class="booking-modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-label="Car booking details">
+    <div class="booking-modal">
+      <button class="booking-modal-close" id="bookingModalClose" aria-label="Close booking modal">&times;</button>
+
+      <div class="booking-modal-grid">
+        <!-- Left: Car Preview -->
+        <div class="booking-modal-car">
+          <div class="booking-modal-car-img">
+            <img id="modalCarImg" src="" alt="Selected Car" loading="lazy" />
+          </div>
+          <div class="booking-modal-car-info">
+            <div class="booking-modal-car-category" id="modalCarCategory">SUV</div>
+            <h2 class="booking-modal-car-name" id="modalCarName">Toyota Land Cruiser V8</h2>
+            <div class="booking-modal-car-features" id="modalCarFeatures"></div>
+            <div class="booking-modal-car-price">
+              <span id="modalCarPrice">PKR 18,000</span>
+              <small>/day</small>
+            </div>
+          </div>
+
+          <div class="booking-modal-whatsapp">
+            <p>⚡ Quick Book via WhatsApp</p>
+            <a href="#" id="modalWhatsAppBtn" target="_blank" rel="noopener noreferrer" class="booking-modal-wa-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.96 11.96 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.24 0-4.326-.693-6.05-1.876l-.424-.29-2.638.885.885-2.638-.29-.424A9.963 9.963 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z" />
+              </svg>
+              Book on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Booking Form -->
+        <div class="booking-modal-form-side">
+          <h3>📋 Complete Your Booking</h3>
+          <p class="booking-modal-subtitle">Fill in the details below and we'll confirm your reservation within minutes.
+          </p>
+
+          <form class="booking-modal-form" id="modalBookingForm" action="https://formsubmit.co/skarduelitetravel@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Car Booking — SkarduEliteTravel">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="Car" id="modalCarHidden" value="">
+            <input type="hidden" name="Daily Rate" id="modalPriceHidden" value="">
+            <div class="modal-form-group">
+              <label>Full Name *</label>
+              <input type="text" id="modalName" name="Name" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="modal-form-row">
+              <div class="modal-form-group">
+                <label>Phone / WhatsApp *</label>
+                <input type="tel" id="modalPhone" name="Phone" placeholder="+92 300 1234567" required />
+              </div>
+              <div class="modal-form-group">
+                <label>Email</label>
+                <input type="email" id="modalEmail" name="Email" placeholder="your@email.com" />
+              </div>
+            </div>
+
+            <div class="modal-form-row">
+              <div class="modal-form-group">
+                <label>Pickup Date *</label>
+                <input type="date" id="modalPickup" name="Pickup Date" required />
+              </div>
+              <div class="modal-form-group">
+                <label>Drop-off Date *</label>
+                <input type="date" id="modalDropoff" name="Dropoff Date" required />
+              </div>
+            </div>
+
+            <div class="modal-form-group">
+              <label>Pickup Location</label>
+              <select id="modalLocation" name="Pickup Location">
+                <option value="airport">Skardu Airport (SDA)</option>
+                <option value="office">Office — Hussainabad Road</option>
+                <option value="hotel">Hotel Delivery</option>
+                <option value="other">Other Location</option>
+              </select>
+            </div>
+
+            <div class="modal-form-group">
+              <label>Special Requests</label>
+              <textarea id="modalNotes" name="Special Requests" rows="3"
+                placeholder="Need a driver? Child seat? Specific route? Let us know..."></textarea>
+            </div>
+
+            <!-- Price Summary -->
+            <div class="booking-price-summary">
+              <div class="price-row">
+                <span>Vehicle</span>
+                <span id="summaryCarName">—</span>
+              </div>
+              <div class="price-row">
+                <span>Duration</span>
+                <span id="summaryDuration">Select dates</span>
+              </div>
+              <div class="price-row price-total">
+                <span>Estimated Total</span>
+                <span id="summaryTotal">—</span>
+              </div>
+            </div>
+
+            <button type="submit" class="booking-modal-submit">
+              ✅ Confirm Booking Request
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
